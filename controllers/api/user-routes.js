@@ -30,3 +30,5 @@ router.get('/', async (req, res) => {
     // finds a single user by its `id`
     // includes their associated subscription data
   });
+
+  module.exports = router;
