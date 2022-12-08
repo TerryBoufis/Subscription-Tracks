@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Subscription, User } = require('../models');
+const withAuth = require('../utils/auth')
 
 
 router.get('/', async (req, res) => {
@@ -18,7 +19,7 @@ router.get('/', async (req, res) => {
     const subscriptions = subscriptionData.map((subscription) => subscription.get({ plain: true }));
 
     // Passes the serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('subscription', { 
       subscriptions, 
       logged_in: req.session.logged_in 
     });
@@ -33,14 +34,14 @@ router.get('/subscription/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name'], //may need to include more attributes
         },
       ],
     });
 
     const subscription = subscriptionData.get({ plain: true });
 
-    res.render('subscription', {
+    res.render('main', {
       ...subscription,
       logged_in: req.session.logged_in
     });
@@ -56,7 +57,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('signup-login');
 });
 
 module.exports = router;
