@@ -21,7 +21,7 @@ Subscription.init(
         allowNull: false,
       },
       price: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       user_id: {
