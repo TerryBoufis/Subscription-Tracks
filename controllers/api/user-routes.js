@@ -32,6 +32,7 @@ router.get('/', async (req, res) => {
   });
 
   router.post("/", async (req, res) => {
+    console.log('1234')
     try {
       const userData = await User.create(req.body);
       req.session.save(() => {
