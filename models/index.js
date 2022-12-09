@@ -1,6 +1,6 @@
 // import models
-const Subscription = require('./User');
-const User = require('./Subscription');
+const Subscription = require('./Subscription');
+const User = require('./User');
 
 // Subscription belongsTo User
 Subscription.belongsTo(User, {
@@ -10,7 +10,7 @@ Subscription.belongsTo(User, {
 
   // User have many Sunscriptions
 User.hasMany(Subscription, {
-    foreignKey: 'Subscription_id',
+    foreignKey: 'user_id',
   });
 
   module.exports = {
