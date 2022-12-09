@@ -17,7 +17,6 @@ Subscription.init(
         autoIncrement: true,
       },
       subscription_name: {
-        defaultValue: "test",
         type: DataTypes.STRING,
         allowNull: false,
       },

@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
         });
 
         if (res.ok) {
-            document.location.replace('subscription');
+            document.location.replace('/');
         } else {
             alert(res.statusText);
         }
