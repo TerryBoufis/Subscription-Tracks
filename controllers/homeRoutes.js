@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['subscription_name'],
         },
       ],
     });
@@ -30,11 +30,11 @@ router.get('/', async (req, res) => {
 
 router.get('/subscription/:id', async (req, res) => {
   try {
-    const subscriptionData = await subscription.findByPk(req.params.id, {
+    const subscriptionData = await Subscription.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ['name'], //may need to include more attributes
+          attributes: ['subscription_name'], //may need to include more attributes
         },
       ],
     });
