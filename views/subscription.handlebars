@@ -1,13 +1,18 @@
+<div>
+      <button id="addBtn" class="btn btn-primary">Add Subscription</button>
+</div>
+
+
 {{#if subscriptions.length}}
 <div class="row text-center">
   <h2>{{subscription_name}}</h2>
   <p>{{price}}</p>
 {{!-- placeholder for renewal date using special npm package --}}
   <p>
-    <button class="btn btn-primary">Update Subscription Price</button>
+    <button id="updateBtn" class="btn btn-primary"data-id="{{id}}">Update Subscription Price</button>
   </p>
   <p>
-    <button class="btn btn-primary">Delete Subcription</button>
+    <button id="deleteBtn" class="btn btn-primary"data-id="{{id}}">Delete Subcription</button>
   </p>
 </div>
 {{/if}}
