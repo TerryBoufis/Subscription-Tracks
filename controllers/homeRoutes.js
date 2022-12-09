@@ -3,7 +3,7 @@ const { Subscription, User } = require('../models');
 const withAuth = require('../utils/auth')
 
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // Gets all subscriptions and JOIN with user data
     const subscriptionData = await Subscription.findAll({
@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/subscription/:id', async (req, res) => {
+router.get('/subscription/:id', withAuth, async (req, res) => {
   try {
     const subscriptionData = await Subscription.findByPk(req.params.id, {
       include: [
@@ -59,5 +59,7 @@ router.get('/login', (req, res) => {
 
   res.render('signup-login');
 });
+
+router.post('/login', )
 
 module.exports = router;
