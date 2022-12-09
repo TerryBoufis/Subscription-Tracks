@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
         });
 
         if (res.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/');
         } else {
             alert(res.statusText);
         }
@@ -33,7 +33,7 @@ const signupFormHandler = async (event) => {
         });
 
         if(res.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/');
         } else {
             alert(res.statusText)
         }
