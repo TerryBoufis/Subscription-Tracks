@@ -17,11 +17,13 @@ Subscription.init(
         autoIncrement: true,
       },
       subscription_name: {
+        defaultValue: "test",
         type: DataTypes.STRING,
         allowNull: false,
       },
       price: {
-        type: DataTypes.DECIMAL,
+        defaultValue: "$14.99",
+        type: DataTypes.STRING,
         allowNull: false,
       },
       user_id: {
