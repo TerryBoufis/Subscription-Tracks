@@ -22,7 +22,6 @@ Subscription.init(
         allowNull: false,
       },
       price: {
-        defaultValue: "$14.99",
         type: DataTypes.STRING,
         allowNull: false,
       },
