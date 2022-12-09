@@ -13,7 +13,4 @@ User.hasMany(Subscription, {
     foreignKey: 'user_id',
   });
 
-  module.exports = {
-    Subscription,
-    User,
-  };
+  module.exports = { Subscription, User };

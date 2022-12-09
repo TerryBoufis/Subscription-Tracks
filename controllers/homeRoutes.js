@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['subscription_name'], //may need to include more attributes
+          attributes: ['id'], //may need to include more attributes
         },
       ],
     });
@@ -34,7 +34,7 @@ router.get('/subscription/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['subscription_name'], //may need to include more attributes
+          attributes: ['id'], //may need to include more attributes
         },
       ],
     });
