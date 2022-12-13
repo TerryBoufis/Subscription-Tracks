@@ -1,9 +1,22 @@
-<div>
-      <button id="addBtn" class="btn btn-primary">Add Subscription</button>
-</div>
+<div class="row">
+    <div class="col-md-10">
+        <h3>Add a New Subscription</h3>
+        <form class="form new-subscription">
+            <div class="forms">
+                <label for="subscription-name">Name:</label>
+                <input class="form-input" type="text" id="subscription-name" name="subscription-name" />
+            </div>
+            <div class="forms">
+                <label for="subscription-price">Price:</label>
+                <input class="form-input" id="subscription-price" name="subscription-price"></input>
+            </div>
+            <div class="forms">
+                <button type="submit" class="btn btn-primary" id="new-subscription-button">Add New Subscription!</button>
+            </div>
+        </form>
+    </div>
 
-
-{{#if subscriptions.length}}
+{{#each subscriptions}}
 <div class="row text-center">
   <h2>{{subscription_name}}</h2>
   <p>{{price}}</p>
@@ -15,4 +28,6 @@
     <button id="deleteBtn" class="btn btn-primary"data-id="{{id}}">Delete Subcription</button>
   </p>
 </div>
-{{/if}}
+{{/each}}
+
+<script src="/js/subscription.js"></script>

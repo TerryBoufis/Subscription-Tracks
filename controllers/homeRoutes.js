@@ -60,6 +60,4 @@ router.get('/login', (req, res) => {
   res.render('signup-login');
 });
 
-router.post('/login', )
-
 module.exports = router;
