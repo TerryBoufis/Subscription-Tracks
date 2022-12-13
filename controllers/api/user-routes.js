@@ -31,54 +31,24 @@ router.get('/', async (req, res) => {
     // includes their associated subscription data
   });
 
+
+    //Sign-up controller
   router.post("/", async (req, res) => {
     console.log('1234')
     try {
       const userData = await User.create(req.body);
       req.session.save(() => {
         req.session.user_id = userData.id;
-        req.session.loggedin = true;
+        req.session.logged_in = true;
 
-        res.status(200).json(userData);
+        res.redirect('/');
       })
     } catch (err) {
       res.status(400).json(err);
     }
   });
-
-  router.put("/:id", async (req, res) => {
-    try {
-      const userData = await User.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
-      });
-      res.status(200).json(userData);
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
-
-  router.delete('/:id', async (req, res) => {
-    try {
-      const userData = await User.destroy({
-        where: {
-          id: req.params.id
-        }
-      });
   
-      if (!userData) {
-        res.status(404).json({ message: 'No user found with this id!' });
-        return;
-      }
-  
-      res.status(200).json(userData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-    // deletes a user by its `id` value
-
+    //login controller
   router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
@@ -113,6 +83,7 @@ router.get('/', async (req, res) => {
     }
   })
 
+    //logout controller
   router.post('/logout', (req, res) => {
     if(req.session.logged_in) {
       req.session.destroy(() => {
