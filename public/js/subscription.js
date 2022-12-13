@@ -5,7 +5,7 @@ const newSubscriptionHandler = async (event) => {
     const price = document.querySelector('#subscription-price').value.trim();
     
     if (subscription_name && price) {
-      const response = await fetch(`/`, {
+      const response = await fetch(`/api/subscription`, {
         method: 'POST',
         body: JSON.stringify({ subscription_name, price }),
         headers: {

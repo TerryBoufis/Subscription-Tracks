@@ -16,7 +16,7 @@
         </form>
     </div>
 
-{{#if subscriptions.length}}
+{{#each subscriptions}}
 <div class="row text-center">
   <h2>{{subscription_name}}</h2>
   <p>{{price}}</p>
@@ -28,6 +28,6 @@
     <button id="deleteBtn" class="btn btn-primary"data-id="{{id}}">Delete Subcription</button>
   </p>
 </div>
-{{/if}}
+{{/each}}
 
 <script src="/js/subscription.js"></script>
