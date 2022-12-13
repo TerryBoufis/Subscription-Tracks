@@ -57,7 +57,6 @@ router.get('/', async (req, res) => {
         res
           .status(400)
           .json({ message: 'Incorrect email, please try again.' });
-          toastr.error('Incorrect email, please try again.')
           return;
       }
 
@@ -67,7 +66,6 @@ router.get('/', async (req, res) => {
         res
           .status(400)
           .json({ message: 'Incorrect password, please try again' });
-          toastr.error('Incorrect password, please try again')
         return;
         
       }
