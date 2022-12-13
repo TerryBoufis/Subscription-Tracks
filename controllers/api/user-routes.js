@@ -56,7 +56,9 @@ router.get('/', async (req, res) => {
       if (!userData) {
         res
           .status(400)
-          .json({ message: 'Incorrect email or password, please try again.' });
+          .json({ message: 'Incorrect email, please try again.' });
+          toastr.error('Incorrect email, please try again.')
+          return;
       }
 
       const validPassword = await userData.checkPassword(req.body.password);
@@ -65,7 +67,9 @@ router.get('/', async (req, res) => {
         res
           .status(400)
           .json({ message: 'Incorrect password, please try again' });
+          toastr.error('Incorrect password, please try again')
         return;
+        
       }
 
       req.session.save(() => {
