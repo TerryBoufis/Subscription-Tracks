@@ -1,19 +1,20 @@
 const newSubscriptionHandler = async (event) => {
     event.preventDefault();
   
-    const newSubscriptionName = document.querySelector('#Subscription_name').value.trim();
+    const subscription_name = document.querySelector('#subscription-name').value.trim();
+    const price = document.querySelector('#subscription-price').value.trim();
     
-    if (newSubscriptionName) {
-      const response = await fetch(`/api/subscription`, {
+    if (subscription_name && price) {
+      const response = await fetch(`/`, {
         method: 'POST',
-        body: JSON.stringify({ newSubscriptionName }),
+        body: JSON.stringify({ subscription_name, price }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
-  
+
       if (response.ok) {
-        document.location.replace('/subscription');
+        document.location.replace('/');
       } else {
         alert('Failed to create subscription');
       }
@@ -58,7 +59,7 @@ const newSubscriptionHandler = async (event) => {
   };
   
   document
-    .querySelector('#addBtn')
+    .querySelector('.new-subscription')
     .addEventListener('submit', newSubscriptionHandler);
 
   document
