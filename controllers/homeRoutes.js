@@ -60,6 +60,13 @@ router.get('/login', (req, res) => {
   res.render('signup-login');
 });
 
-router.post('/login', )
+// router.post('/login', (req, res) => {
+//   if (req.session.logged_in) {
+//     res.redirect('/');
+//     return;
+//   }
+
+//   res.render('signup-login')
+// })
 
 module.exports = router;
