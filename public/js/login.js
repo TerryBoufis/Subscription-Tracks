@@ -14,7 +14,8 @@ const loginFormHandler = async (event) => {
         if (res.ok) {
             document.location.replace('/');
         } else {
-            alert(res.statusText);
+            var message = await res.json()
+            toastr.error(`${message.message}`);
         }
     }
 };
