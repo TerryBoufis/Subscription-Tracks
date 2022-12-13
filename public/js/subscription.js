@@ -51,7 +51,7 @@ const newSubscriptionHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/subscription');
+        document.location.replace('/');
       } else {
         alert('Failed to delete subscription');
       }
