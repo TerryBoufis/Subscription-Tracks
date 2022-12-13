@@ -20,27 +20,6 @@ const newSubscriptionHandler = async (event) => {
       }
     }
   };
-
-  const updateButtonHandler = async (event) => {
-    event.preventDefault();
-
-    const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/subscription/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ price:newSubscriptionPrice }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace('/subscription');
-    } else {
-      alert('Failed to update subscription price');
-    }
-  }
-
   
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -61,10 +40,6 @@ const newSubscriptionHandler = async (event) => {
   document
     .querySelector('.new-subscription')
     .addEventListener('submit', newSubscriptionHandler);
-
-  document
-    .querySelector('#updateBtn')
-    .addEventListener('click', updateButtonHandler);
   
   document
     .querySelector('#deleteBtn')

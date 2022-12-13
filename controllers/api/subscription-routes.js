@@ -43,20 +43,6 @@ router.post("/", async (req, res) => {
 });
 // creates a new subscription
 
-router.put("/:id", async (req, res) => {
-  try {
-    const subscriptionData = await Subscription.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-    });
-    res.status(200).json(subscriptionData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-  // updates a subscription by its `id` value
-});
-
 router.delete('/:id', async (req, res) => {
     try {
       const subscriptionData = await Subscription.destroy({
