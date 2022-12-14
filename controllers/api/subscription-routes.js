@@ -5,7 +5,11 @@ const { Subscription, User } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const subscriptionData = await Subscription.findAll({ include: [User] });
+    const subscriptionData = await Subscription.findAll({ include: [User], 
+      where: {
+        user_id: req.session.user_id
+      }
+    });
     return res.status(200).json(subscriptionData);
   } catch (err) {
     res.status(500).json(err);
@@ -35,7 +39,11 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const subscriptionData = await Subscription.create(req.body);
+    const subscriptionData = await Subscription.create({
+      ...req.body,
+      user_id: req.session.user_id
+    });
+
     res.status(200).json(subscriptionData);
   } catch (err) {
     res.status(400).json(err);
