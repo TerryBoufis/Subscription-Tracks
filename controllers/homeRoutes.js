@@ -7,6 +7,9 @@ router.get('/', withAuth, async (req, res) => {
   try {
     // Gets all subscriptions and JOIN with user data
     const subscriptionData = await Subscription.findAll({
+      where:{
+        user_id: req.session.user_id
+      },
       include: [
         {
           model: User,
