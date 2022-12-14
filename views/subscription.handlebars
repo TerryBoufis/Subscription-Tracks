@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-10">
+    <div class="row text-center m-1 p-5">
         <h3>Add a New Subscription</h3>
         <form class="form new-subscription">
             <div class="forms">
@@ -16,15 +16,14 @@
         </form>
     </div>
 
-{{#each subscriptions}}
-<div class="row text-center">
-  <h2>{{subscription_name}}</h2>
-  <p>{{price}}</p>
-{{!-- placeholder for renewal date using special npm package --}}
-  <p>
-    <button id="deleteBtn" class="btn btn-primary"data-id="{{id}}">Delete Subcription</button>
-  </p>
-</div>
-{{/each}}
+    {{#each subscriptions}}
+    <div class="row text-center m-0 p-1">
+      <h2>{{subscription_name}}</h2>
+      <p>{{price}}</p>
+      <p>
+        <button id="deleteBtn" class="btn btn-primary"data-id="{{id}}">Delete Subcription</button>
+      </p>
+    </div>
+    {{/each}}
 
 <script src="/js/subscription.js"></script>
